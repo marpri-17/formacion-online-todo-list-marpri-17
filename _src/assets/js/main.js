@@ -5,7 +5,8 @@ const displayDate = document.querySelector(".js-date");
 const btnAddTask = document.querySelector(".js-btn-newtask")
 const modalWindow = document.querySelector(".js-modal");
 const inputNewTask = document.querySelector(".js-newtask");
-const btnCloseModal = document.querySelector(".js-btn-closemodal")
+const btnCloseModal = document.querySelector(".js-btn-closemodal");
+//const checkboxes = document.querySelectorAll(ul > input[type = "checkbox"])
 
 let toDoTasks = [
     {
@@ -27,7 +28,8 @@ function renderTask(toDoTasks) {
     let createList = document.createElement("ul");
     listWrapper.appendChild(createList);
     toDoTasks.map(task => {
-        let inputhtml = (task.isCompleted === true) ? `<input type="checkbox" name=${`task${task.id}`} checked ></input>` : ` <input type="checkbox" name=${`task${task.id}`}></input>`
+        let inputhtml = (task.isCompleted === true) ? `<input type="checkbox" name=${`task${task.id}`} checked ></input>` : ` <input type="checkbox" name=${`task${task.id}`}></input>`;
+
         let htmlTask = `
         <li data-id="${task.id}">
             ${inputhtml}
@@ -48,6 +50,21 @@ function addNewTask() {
     };
     toDoTasks.push(newtask);
     modalWindow.classList.toggle("hidden")
+}
+
+function addListenerToCheckboxes() {
+    const checkboxes = document.querySelectorAll("ul input[type = 'checkbox']")
+    console.log(checkboxes)
+    checkboxes.forEach(checkbox => checkbox.addEventListener("click", handleChecbox))
+}
+
+function handleChecbox(e) {
+    let selectedTaskID = e.target.parentNode.dataset.id;
+    for (let task of toDoTasks) {
+        if (task.id === selectedTaskID) {
+            task.isCompleted = !task.isCompleted
+        }
+    }
 }
 
 function transformDayNumberToName(weekDayInNumber) {
@@ -116,3 +133,11 @@ function getDate() {
 
 btnCloseModal.addEventListener("click", addNewTask)
 btnAddTask.addEventListener("click", () => modalWindow.classList.toggle("hidden"))
+
+// Init
+function initApp() {
+    getDate();
+    renderTask(toDoTasks);
+    addListenerToCheckboxes();
+}
+window.onload = initApp
