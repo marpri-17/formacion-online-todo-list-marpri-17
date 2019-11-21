@@ -20,6 +20,7 @@ ul {
     width: 80%;
     height: 70%;
     background: $color-white;
+    //padding: 20px;
   }
 
   //Modal
@@ -40,9 +41,13 @@ ul {
 
   &__card {
     &_header {
+      padding: 10px 25px 10px 25px;
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
+      border-bottom: 1px rgba(108, 122, 137, 0.5) ridge;
+      &_img {
+      }
     }
     &_footer {
       display: flex;

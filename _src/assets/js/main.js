@@ -8,6 +8,7 @@ const inputNewTask = document.querySelector(".js-newtask");
 const btnCloseModal = document.querySelector(".js-btn-closemodal");
 //const checkboxes = document.querySelectorAll(ul > input[type = "checkbox"])
 
+
 let toDoTasks = [
     {
         id: "id00",
@@ -25,6 +26,7 @@ let toDoTasks = [
 
 
 function renderTask(toDoTasks) {
+    listWrapper.innerHTML = ""
     let createList = document.createElement("ul");
     listWrapper.appendChild(createList);
     toDoTasks.map(task => {
@@ -41,6 +43,7 @@ function renderTask(toDoTasks) {
 }
 
 function addNewTask() {
+
     let newTaskName = inputNewTask.value;
     let newTaskId = `id0${toDoTasks.length}`;
     let newtask = {
@@ -49,7 +52,9 @@ function addNewTask() {
         isCompleted: false,
     };
     toDoTasks.push(newtask);
-    modalWindow.classList.toggle("hidden")
+    modalWindow.classList.toggle("hidden");
+    renderTask(toDoTasks)
+    addListenerToCheckboxes();
 }
 
 function addListenerToCheckboxes() {
@@ -131,8 +136,18 @@ function getDate() {
     displayDate.innerHTML = dateHTML
 }
 
+function handleSubmit(e) {
+    if (e.keyCode === 13) {
+        addNewTask();
+    }
+}
+
 btnCloseModal.addEventListener("click", addNewTask)
-btnAddTask.addEventListener("click", () => modalWindow.classList.toggle("hidden"))
+btnAddTask.addEventListener("click", () => {
+    modalWindow.classList.toggle("hidden")
+    inputNewTask.focus();
+})
+modalWindow.addEventListener("keyup", handleSubmit)
 
 // Init
 function initApp() {
