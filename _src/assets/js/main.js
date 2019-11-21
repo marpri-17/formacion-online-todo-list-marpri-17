@@ -6,6 +6,7 @@ const btnAddTask = document.querySelector(".js-btn-newtask")
 const modalWindow = document.querySelector(".js-modal");
 const inputNewTask = document.querySelector(".js-newtask");
 const btnCloseModal = document.querySelector(".js-btn-closemodal");
+const btnCancelModal = document.querySelector(".page__modal_cancel");
 //const checkboxes = document.querySelectorAll(ul > input[type = "checkbox"])
 
 
@@ -48,7 +49,7 @@ function addNewTask() {
     let newTaskId = `id0${toDoTasks.length}`;
     let newtask = {
         id: newTaskId,
-        task_name: newTaskName,
+        task_name: newTaskName || "Nueva tarea",
         isCompleted: false,
     };
     toDoTasks.push(newtask);
@@ -128,10 +129,10 @@ function getDate() {
     let month = transformMonthNumberToName(newDate.getMonth());
     let year = newDate.getUTCFullYear();
 
-    let dateHTML = `<div class="js-daynumber">${dayNumber}</div>
+    let dateHTML = `<div class="js-daynumber page__card_header_date-daynumber">${dayNumber}</div>
     <div class="">
-      <p class="js-dayname">${dayName}</p>
-      <p class="js-monthname">${month} , ${year}</p>
+      <p class="js-dayname page__card_header_date-day">${dayName}</p>
+      <p class="js-monthname page__card_header_date-month">${month} , ${year}</p>
     </div>`;
     displayDate.innerHTML = dateHTML
 }
@@ -148,6 +149,7 @@ btnAddTask.addEventListener("click", () => {
     inputNewTask.focus();
 })
 modalWindow.addEventListener("keyup", handleSubmit)
+btnCancelModal.addEventListener("click", () => modalWindow.classList.toggle("hidden"))
 
 // Init
 function initApp() {

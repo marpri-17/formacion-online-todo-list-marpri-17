@@ -3,7 +3,8 @@
 body {
   background: $color-background;
   margin: 0;
-  height: 100vh;
+  // height: 100vh;
+  font-family: $font-main;
 }
 * {
   box-sizing: border-box;
@@ -13,9 +14,11 @@ ul {
 }
 
 .page {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   &__main {
     width: 80%;
     height: 70%;
@@ -45,14 +48,46 @@ ul {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px rgba(108, 122, 137, 0.5) ridge;
+      border-bottom: 1px rgba(20, 210, 189, 0.5) ridge;
       &_img {
+      }
+      &_date-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+      &_date-daynumber {
+        margin: 0 10px 0 0;
+        color: $color-background;
+        font-size: 2.3rem;
+        font-weight: bold;
+      }
+      &_date-day {
+        margin: 0 0 -2px 0;
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+      &_date-month {
+        margin: 2px 0 0 0;
+        font-size: 0.9rem;
       }
     }
     &_footer {
       display: flex;
       justify-content: center;
       align-items: center;
+      &_btn-newtask {
+        color: $color-background;
+        width: 70px;
+        //height: 50px;
+        //padding: 10px;
+        font-size: 3.5rem;
+        font-weight: bold;
+        background: transparent;
+        border-radius: 50%;
+        border: 3px $color-background solid;
+      }
     }
   }
 }

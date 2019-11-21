@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css?family=Arimo:400,700&display=swap" rel="stylesheet">
   <title>To Do List</title>
   <link rel="icon" href="./favicon.png" />
   <link rel="stylesheet" href="./assets/css/main.css" />
@@ -14,6 +15,7 @@
     <div class="page__main">
       <!-- MODAL -->
       <div class="page__modal js-modal hidden">
+        <button class="page__modal_cancel">Cerrar</button>
         <div class="page__modal_content">
           <label for="newtask">Añadir tarea</label>
           <input type="text" name="newtask" class="page__modal_content_input js-newtask" />
@@ -30,7 +32,7 @@
 
       </main>
       <footer class="page__card_footer">
-        <button class="page_card_footer-btn-newtask js-btn-newtask">+</button>
+        <button class="page__card_footer_btn-newtask js-btn-newtask">+</button>
       </footer>
     </div>
   </div>
