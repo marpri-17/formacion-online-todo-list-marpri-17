@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Adalab Web Starter Kit</title>
+  <title>To Do List</title>
   <link rel="icon" href="./favicon.png" />
   <link rel="stylesheet" href="./assets/css/main.css" />
 </head>
@@ -12,17 +12,26 @@
 <body>
   <div class="page">
     <div class="page__main">
+      <!-- MODAL -->
+      <div class="page__modal js-modal hidden">
+        <div class="page__modal_content">
+          <label for="newtask">Añadir tarea</label>
+          <input type="text" name="newtask" class="page__modal_content_input js-newtask" />
+          <button class="page__modal_btn-close js-btn-closemodal">Añadir</button>
+        </div>
+      </div>
+      <!---->
       <header class="page__card_header">
         <img src="./assets/icons/favicon.png" alt="logotipo Adalab" class="page__card_header_img" />
-        <div class="page__card_header_date-wrapper">
+        <div class="page__card_header_date-wrapper js-date">
 
         </div>
       </header>
-      <main class="page__card_list">
+      <main class="page__card_list js-list-wrapper">
 
       </main>
       <footer class="page__card_footer">
-        <button class="page_card_footer-btn-newtask">+</button>
+        <button class="page_card_footer-btn-newtask js-btn-newtask">+</button>
       </footer>
     </div>
   </div>

@@ -5,6 +5,12 @@ body {
   margin: 0;
   height: 100vh;
 }
+* {
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
 
 .page {
   display: flex;
@@ -12,6 +18,41 @@ body {
   align-content: center;
   &__main {
     width: 80%;
+    height: 70%;
     background: $color-white;
   }
+
+  //Modal
+  &__modal {
+    position: absolute;
+    //width: 100%;
+    height: 70%;
+    background: rgba(255, 255, 255, 0.5);
+    &_content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  // CARD
+
+  &__card {
+    &_header {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    &_footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+// Display
+.hidden {
+  display: none;
 }
