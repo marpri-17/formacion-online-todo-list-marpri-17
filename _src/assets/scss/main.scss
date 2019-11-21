@@ -1,0 +1,17 @@
+@import "core/settings";
+
+body {
+  background: $color-background;
+  margin: 0;
+  height: 100vh;
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  &__main {
+    width: 80%;
+    background: $color-white;
+  }
+}
